@@ -52,13 +52,13 @@ function outputCsvDownload(mysqli $conn, string $type): void
    $exports = [
       'memberships' => [
          'filename' => 'memberships-' . date('Y-m-d') . '.csv',
-         'query' => "SELECT id, full_name, email, phone, gender, occupation, education_level, membership_type, status, created_at FROM memberships ORDER BY created_at DESC",
-         'headers' => ['ID', 'Full Name', 'Email', 'Phone', 'Gender', 'Occupation', 'Education Level', 'Membership Type', 'Status', 'Created At'],
+         'query' => "SELECT id, full_name, email, phone, gender, country, region, district, occupation, education_level, membership_type, status, created_at FROM memberships ORDER BY created_at DESC",
+         'headers' => ['ID', 'Full Name', 'Email', 'Phone', 'Gender', 'Country', 'Region', 'District', 'Occupation', 'Education Level', 'Membership Type', 'Status', 'Created At'],
       ],
       'volunteers' => [
          'filename' => 'volunteers-' . date('Y-m-d') . '.csv',
-         'query' => "SELECT id, full_name, email, phone, occupation, volunteer_area, availability, status, created_at FROM volunteers ORDER BY created_at DESC",
-         'headers' => ['ID', 'Full Name', 'Email', 'Phone', 'Occupation', 'Volunteer Area', 'Availability', 'Status', 'Created At'],
+         'query' => "SELECT id, full_name, email, phone, country, region, district, occupation, volunteer_area, availability, status, created_at FROM volunteers ORDER BY created_at DESC",
+         'headers' => ['ID', 'Full Name', 'Email', 'Phone', 'Country', 'Region', 'District', 'Occupation', 'Volunteer Area', 'Availability', 'Status', 'Created At'],
       ],
    ];
 

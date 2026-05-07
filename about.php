@@ -298,9 +298,55 @@
 
       .impact-grid {
          display: grid;
-         grid-template-columns: repeat(4, minmax(0, 1fr));
+         grid-template-columns: repeat(3, minmax(0, 1fr));
          gap: 18px;
+         margin-top: 20px;
+      }
+
+      .impact-category {
+         margin-top: 40px;
+      }
+
+      .impact-category+.impact-category {
+         border-top: 1px solid rgba(255, 255, 255, 0.14);
+         padding-top: 8px;
+      }
+
+      .impact-category-label {
+         display: inline-flex;
+         align-items: center;
+         gap: 10px;
+         margin-bottom: 20px;
+         padding: 8px 22px;
+         border-radius: 999px;
+         background: rgba(255, 255, 255, 0.14);
+         border: 1px solid rgba(255, 255, 255, 0.26);
+         color: var(--aidf-gold);
+         font-size: 13px;
+         font-weight: 700;
+         letter-spacing: 0.08em;
+         text-transform: uppercase;
+      }
+
+      .photo-strip {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 16px;
          margin-top: 34px;
+      }
+
+      .photo-strip img {
+         width: 100%;
+         height: 240px;
+         object-fit: cover;
+         border-radius: 18px;
+         box-shadow: 0 10px 28px rgba(9, 45, 82, 0.16);
+         display: block;
+         transition: transform 0.3s ease;
+      }
+
+      .photo-strip img:hover {
+         transform: scale(1.02);
       }
 
       .impact-card {
@@ -470,7 +516,8 @@
          .approach-grid,
          .impact-grid,
          .org-executives,
-         .org-membership {
+         .org-membership,
+         .photo-strip {
             grid-template-columns: 1fr;
          }
 
@@ -511,23 +558,23 @@
             </div>
             <div class="col-lg-6">
                <div class="about-hero-card">
-                  <img src="assets/img/project/p2.jpeg" alt="AIDF team working with community members" class="about-hero-image">
+                  <img src="assets/img/aidf/a1.jpeg" alt="AIDF team working with community members" class="about-hero-image">
                   <div class="hero-stat-grid">
                      <div class="hero-stat">
-                        <strong>20+</strong>
-                        <span>Regions reached through programs and partnerships</span>
+                        <strong>80</strong>
+                        <span>Communities served across Tanzania</span>
                      </div>
                      <div class="hero-stat">
-                        <strong>120+</strong>
-                        <span>Communities supported with practical development initiatives</span>
+                        <strong>31,470+</strong>
+                        <span>People reached through our programs</span>
                      </div>
                      <div class="hero-stat">
-                        <strong>50+</strong>
-                        <span>Institutions and local actors engaged in collaboration</span>
+                        <strong>54</strong>
+                        <span>Institutional partnerships active</span>
                      </div>
                      <div class="hero-stat">
-                        <strong>5000+</strong>
-                        <span>Youth and community members directly engaged</span>
+                        <strong>24,940+</strong>
+                        <span>Youth and young people engaged</span>
                      </div>
                   </div>
                </div>
@@ -605,6 +652,14 @@
                      <p>Connecting social development, environmental stewardship, and accountability in every program area.</p>
                   </div>
                </div>
+
+               <!-- Photo strip -->
+               <div class="photo-strip">
+                  <img src="assets/img/aidf/a2.jpeg" alt="AIDF community outreach">
+                  <img src="assets/img/aidf/a3.jpeg" alt="AIDF team in the field">
+                  <img src="assets/img/aidf/a4.jpeg" alt="AIDF community engagement">
+               </div>
+
             </div>
          </div>
       </div>
@@ -616,27 +671,73 @@
             <div class="section-pad">
                <div class="text-center">
                   <span class="section-tag" style="color: rgba(255,255,255,0.82);">Our Impact</span>
-                  <h2 class="section-title">The scale of our work continues to grow with communities.</h2>
-                  <p class="section-copy mx-auto" style="max-width: 780px; color: rgba(255,255,255,0.85);">From youth engagement and institutional collaboration to multi-region program delivery, AIDF is building momentum through consistent, people-centered action.</p>
+                  <h2 class="section-title">Numbers that reflect real lives and lasting change.</h2>
+                  <p class="section-copy mx-auto" style="max-width: 780px; color: rgba(255,255,255,0.85);">Every figure below represents communities mobilised, blood saved, youth empowered, and partnerships built that deepen AIDF's reach across Tanzania.</p>
                </div>
-               <div class="impact-grid">
-                  <div class="impact-card text-center">
-                     <span class="counter" data-target="5000">0</span>
-                     <p>Youth engaged</p>
+
+               <!-- Group 1: Community Reach -->
+               <div class="impact-category">
+                  <div class="impact-category-label">
+                     <i class="fas fa-globe-africa"></i>&nbsp; Community Reach
                   </div>
-                  <div class="impact-card text-center">
-                     <span class="counter" data-target="120">0</span>
-                     <p>Communities served</p>
-                  </div>
-                  <div class="impact-card text-center">
-                     <span class="counter" data-target="50">0</span>
-                     <p>Institutions partnered</p>
-                  </div>
-                  <div class="impact-card text-center">
-                     <span class="counter" data-target="20">0</span>
-                     <p>Regions covered</p>
+                  <div class="impact-grid">
+                     <div class="impact-card text-center">
+                        <span class="counter" data-target="26">0</span>
+                        <p>Community Outreach</p>
+                     </div>
+                     <div class="impact-card text-center">
+                        <span class="counter" data-target="80">0</span>
+                        <p>Communities Served</p>
+                     </div>
+                     <div class="impact-card text-center">
+                        <span class="counter" data-target="31470" data-display="31,470+">0</span>
+                        <p>People Reached</p>
+                     </div>
                   </div>
                </div>
+
+               <!-- Group 2: Health Impact -->
+               <div class="impact-category">
+                  <div class="impact-category-label">
+                     <i class="fas fa-heartbeat"></i>&nbsp; Health Impact
+                  </div>
+                  <div class="impact-grid">
+                     <div class="impact-card text-center">
+                        <span class="counter" data-target="38">0</span>
+                        <p>Blood Drives</p>
+                     </div>
+                     <div class="impact-card text-center">
+                        <span class="counter" data-target="19160" data-display="19,160">0</span>
+                        <p>Blood Units Collected</p>
+                     </div>
+                     <div class="impact-card text-center">
+                        <span class="counter" data-target="25">0</span>
+                        <p>Health Facilities Supported</p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Group 3: Engagement & Partnerships -->
+               <div class="impact-category">
+                  <div class="impact-category-label">
+                     <i class="fas fa-hands-helping"></i>&nbsp; Engagement &amp; Partnerships
+                  </div>
+                  <div class="impact-grid">
+                     <div class="impact-card text-center">
+                        <span class="counter" data-target="24940" data-display="24,940+">0</span>
+                        <p>Youth Engaged</p>
+                     </div>
+                     <div class="impact-card text-center">
+                        <span class="counter" data-target="54">0</span>
+                        <p>Institutional Partnerships</p>
+                     </div>
+                     <div class="impact-card text-center">
+                        <span class="counter" data-target="8">0</span>
+                        <p>Charity Programs</p>
+                     </div>
+                  </div>
+               </div>
+
             </div>
          </div>
       </div>
@@ -788,24 +889,39 @@
    <script src="assets/js/app.min.js"></script>
    <script src="assets/js/main.js"></script>
    <script>
-      const counters = document.querySelectorAll('.counter');
-      const speed = 200;
+      // Scroll-triggered counter animation with formatted number support
+      function animateCounter(counter) {
+         const target = parseInt(counter.getAttribute('data-target'), 10);
+         const displayVal = counter.getAttribute('data-display');
+         const duration = 1800;
+         const stepTime = 16;
+         const steps = Math.ceil(duration / stepTime);
+         let current = 0;
 
-      counters.forEach(counter => {
-         const animate = () => {
-            const value = +counter.getAttribute('data-target');
-            const data = +counter.innerText;
-            const time = value / speed;
-
-            if (data < value) {
-               counter.innerText = Math.ceil(data + time);
-               setTimeout(animate, 1);
+         const timer = setInterval(function() {
+            current += Math.ceil(target / steps);
+            if (current >= target) {
+               counter.innerText = displayVal ? displayVal : target.toLocaleString();
+               clearInterval(timer);
             } else {
-               counter.innerText = value;
+               counter.innerText = current.toLocaleString();
             }
-         };
+         }, stepTime);
+      }
 
-         animate();
+      var observer = new IntersectionObserver(function(entries) {
+         entries.forEach(function(entry) {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+               entry.target.dataset.animated = '1';
+               animateCounter(entry.target);
+            }
+         });
+      }, {
+         threshold: 0.4
+      });
+
+      document.querySelectorAll('.counter').forEach(function(counter) {
+         observer.observe(counter);
       });
    </script>
 </body>

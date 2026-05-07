@@ -13,13 +13,13 @@
    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/logo.png">
-   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/logo.pngg">
+   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.png">
-   <link rel="icon" type="image/png" sizes="192x192" href="aassets/img/logo.png">
+   <link rel="icon" type="image/png" sizes="192x192" href="assets/img/logo.png">
    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/logo.png">
    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo.png">
@@ -33,6 +33,41 @@
    <link rel="stylesheet" href="assets/css/app.min.css">
    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
    <link rel="stylesheet" href="assets/css/style.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+   <style>
+      .select2-container .select2-selection--single {
+         height: calc(1.5em + 0.75rem + 2px);
+         padding: 0.375rem 0.75rem;
+         font-size: 1rem;
+         border: 1px solid #ced4da;
+         border-radius: 0.375rem;
+         background-color: #fff;
+      }
+
+      .select2-container--default .select2-selection--single .select2-selection__rendered {
+         line-height: 1.5;
+         color: #212529;
+         padding-left: 0;
+      }
+
+      .select2-container--default .select2-selection--single .select2-selection__arrow {
+         height: 100%;
+         top: 0;
+      }
+
+      .select2-container--default .select2-results__option--highlighted[aria-selected] {
+         background-color: #0d5ea8;
+      }
+
+      .select2-dropdown {
+         border-radius: 0.375rem;
+         border-color: #ced4da;
+      }
+
+      .select2-container {
+         width: 100% !important;
+      }
+   </style>
    <style>
       .mobile-logo img {
          width: 100px;
@@ -162,6 +197,17 @@
          border-bottom: 2px solid #f0f0f0;
          padding-bottom: 10px;
       }
+
+      .policy-warning {
+         display: none;
+         margin-top: 12px;
+         padding: 12px 16px;
+         border-left: 4px solid #dc3545;
+         border-radius: 8px;
+         background: #fff1f1;
+         color: #8a1f1f;
+         font-weight: 600;
+      }
    </style>
 </head>
 
@@ -273,7 +319,7 @@
             <h2 class="text-center mb-4">Membership Application Form</h2>
             <p class="text-center mb-5">Fill out the form below to apply for membership. We'll review your application and get back to you within 7-10 business days.</p>
 
-            <form action="process_membership.php" method="post">
+            <form action="process_membership.php" method="post" id="membershipForm">
                <!-- Personal Information -->
                <div class="form-section">
                   <h4><i class="fas fa-user mr-2"></i>Personal Information</h4>
@@ -341,6 +387,187 @@
                         <label for="address" class="form-label">Address</label>
                         <textarea class="form-control" id="address" name="address" rows="3"></textarea>
                      </div>
+                     <div class="col-md-6">
+                        <label for="country" class="form-label">Country *</label>
+                        <select class="form-control" id="country" name="country" required>
+                           <option value="">— Select Country —</option>
+                           <option value="Tanzania" selected>Tanzania</option>
+                           <option value="Afghanistan">Afghanistan</option>
+                           <option value="Albania">Albania</option>
+                           <option value="Algeria">Algeria</option>
+                           <option value="Andorra">Andorra</option>
+                           <option value="Angola">Angola</option>
+                           <option value="Argentina">Argentina</option>
+                           <option value="Armenia">Armenia</option>
+                           <option value="Australia">Australia</option>
+                           <option value="Austria">Austria</option>
+                           <option value="Azerbaijan">Azerbaijan</option>
+                           <option value="Bahamas">Bahamas</option>
+                           <option value="Bahrain">Bahrain</option>
+                           <option value="Bangladesh">Bangladesh</option>
+                           <option value="Belarus">Belarus</option>
+                           <option value="Belgium">Belgium</option>
+                           <option value="Belize">Belize</option>
+                           <option value="Benin">Benin</option>
+                           <option value="Bhutan">Bhutan</option>
+                           <option value="Bolivia">Bolivia</option>
+                           <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                           <option value="Botswana">Botswana</option>
+                           <option value="Brazil">Brazil</option>
+                           <option value="Brunei">Brunei</option>
+                           <option value="Bulgaria">Bulgaria</option>
+                           <option value="Burkina Faso">Burkina Faso</option>
+                           <option value="Burundi">Burundi</option>
+                           <option value="Cabo Verde">Cabo Verde</option>
+                           <option value="Cambodia">Cambodia</option>
+                           <option value="Cameroon">Cameroon</option>
+                           <option value="Canada">Canada</option>
+                           <option value="Central African Republic">Central African Republic</option>
+                           <option value="Chad">Chad</option>
+                           <option value="Chile">Chile</option>
+                           <option value="China">China</option>
+                           <option value="Colombia">Colombia</option>
+                           <option value="Comoros">Comoros</option>
+                           <option value="Congo (Brazzaville)">Congo (Brazzaville)</option>
+                           <option value="Congo (Kinshasa)">Congo (Kinshasa)</option>
+                           <option value="Costa Rica">Costa Rica</option>
+                           <option value="Croatia">Croatia</option>
+                           <option value="Cuba">Cuba</option>
+                           <option value="Cyprus">Cyprus</option>
+                           <option value="Czech Republic">Czech Republic</option>
+                           <option value="Denmark">Denmark</option>
+                           <option value="Djibouti">Djibouti</option>
+                           <option value="Dominican Republic">Dominican Republic</option>
+                           <option value="Ecuador">Ecuador</option>
+                           <option value="Egypt">Egypt</option>
+                           <option value="El Salvador">El Salvador</option>
+                           <option value="Equatorial Guinea">Equatorial Guinea</option>
+                           <option value="Eritrea">Eritrea</option>
+                           <option value="Estonia">Estonia</option>
+                           <option value="Eswatini">Eswatini</option>
+                           <option value="Ethiopia">Ethiopia</option>
+                           <option value="Fiji">Fiji</option>
+                           <option value="Finland">Finland</option>
+                           <option value="France">France</option>
+                           <option value="Gabon">Gabon</option>
+                           <option value="Gambia">Gambia</option>
+                           <option value="Georgia">Georgia</option>
+                           <option value="Germany">Germany</option>
+                           <option value="Ghana">Ghana</option>
+                           <option value="Greece">Greece</option>
+                           <option value="Guatemala">Guatemala</option>
+                           <option value="Guinea">Guinea</option>
+                           <option value="Guinea-Bissau">Guinea-Bissau</option>
+                           <option value="Guyana">Guyana</option>
+                           <option value="Haiti">Haiti</option>
+                           <option value="Honduras">Honduras</option>
+                           <option value="Hungary">Hungary</option>
+                           <option value="Iceland">Iceland</option>
+                           <option value="India">India</option>
+                           <option value="Indonesia">Indonesia</option>
+                           <option value="Iran">Iran</option>
+                           <option value="Iraq">Iraq</option>
+                           <option value="Ireland">Ireland</option>
+                           <option value="Israel">Israel</option>
+                           <option value="Italy">Italy</option>
+                           <option value="Jamaica">Jamaica</option>
+                           <option value="Japan">Japan</option>
+                           <option value="Jordan">Jordan</option>
+                           <option value="Kazakhstan">Kazakhstan</option>
+                           <option value="Kenya">Kenya</option>
+                           <option value="Kuwait">Kuwait</option>
+                           <option value="Kyrgyzstan">Kyrgyzstan</option>
+                           <option value="Laos">Laos</option>
+                           <option value="Latvia">Latvia</option>
+                           <option value="Lebanon">Lebanon</option>
+                           <option value="Lesotho">Lesotho</option>
+                           <option value="Liberia">Liberia</option>
+                           <option value="Libya">Libya</option>
+                           <option value="Lithuania">Lithuania</option>
+                           <option value="Luxembourg">Luxembourg</option>
+                           <option value="Madagascar">Madagascar</option>
+                           <option value="Malawi">Malawi</option>
+                           <option value="Malaysia">Malaysia</option>
+                           <option value="Maldives">Maldives</option>
+                           <option value="Mali">Mali</option>
+                           <option value="Malta">Malta</option>
+                           <option value="Mauritania">Mauritania</option>
+                           <option value="Mauritius">Mauritius</option>
+                           <option value="Mexico">Mexico</option>
+                           <option value="Moldova">Moldova</option>
+                           <option value="Mongolia">Mongolia</option>
+                           <option value="Montenegro">Montenegro</option>
+                           <option value="Morocco">Morocco</option>
+                           <option value="Mozambique">Mozambique</option>
+                           <option value="Myanmar">Myanmar</option>
+                           <option value="Namibia">Namibia</option>
+                           <option value="Nepal">Nepal</option>
+                           <option value="Netherlands">Netherlands</option>
+                           <option value="New Zealand">New Zealand</option>
+                           <option value="Nicaragua">Nicaragua</option>
+                           <option value="Niger">Niger</option>
+                           <option value="Nigeria">Nigeria</option>
+                           <option value="North Macedonia">North Macedonia</option>
+                           <option value="Norway">Norway</option>
+                           <option value="Oman">Oman</option>
+                           <option value="Pakistan">Pakistan</option>
+                           <option value="Panama">Panama</option>
+                           <option value="Papua New Guinea">Papua New Guinea</option>
+                           <option value="Paraguay">Paraguay</option>
+                           <option value="Peru">Peru</option>
+                           <option value="Philippines">Philippines</option>
+                           <option value="Poland">Poland</option>
+                           <option value="Portugal">Portugal</option>
+                           <option value="Qatar">Qatar</option>
+                           <option value="Romania">Romania</option>
+                           <option value="Russia">Russia</option>
+                           <option value="Rwanda">Rwanda</option>
+                           <option value="Saudi Arabia">Saudi Arabia</option>
+                           <option value="Senegal">Senegal</option>
+                           <option value="Serbia">Serbia</option>
+                           <option value="Sierra Leone">Sierra Leone</option>
+                           <option value="Singapore">Singapore</option>
+                           <option value="Slovakia">Slovakia</option>
+                           <option value="Slovenia">Slovenia</option>
+                           <option value="Somalia">Somalia</option>
+                           <option value="South Africa">South Africa</option>
+                           <option value="South Sudan">South Sudan</option>
+                           <option value="Spain">Spain</option>
+                           <option value="Sri Lanka">Sri Lanka</option>
+                           <option value="Sudan">Sudan</option>
+                           <option value="Sweden">Sweden</option>
+                           <option value="Switzerland">Switzerland</option>
+                           <option value="Syria">Syria</option>
+                           <option value="Tajikistan">Tajikistan</option>
+                           <option value="Thailand">Thailand</option>
+                           <option value="Timor-Leste">Timor-Leste</option>
+                           <option value="Togo">Togo</option>
+                           <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                           <option value="Tunisia">Tunisia</option>
+                           <option value="Turkey">Turkey</option>
+                           <option value="Turkmenistan">Turkmenistan</option>
+                           <option value="Uganda">Uganda</option>
+                           <option value="Ukraine">Ukraine</option>
+                           <option value="United Arab Emirates">United Arab Emirates</option>
+                           <option value="United Kingdom">United Kingdom</option>
+                           <option value="United States">United States</option>
+                           <option value="Uruguay">Uruguay</option>
+                           <option value="Uzbekistan">Uzbekistan</option>
+                           <option value="Venezuela">Venezuela</option>
+                           <option value="Vietnam">Vietnam</option>
+                           <option value="Yemen">Yemen</option>
+                           <option value="Zambia">Zambia</option>
+                           <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="region" class="form-label">Region *</label>
+                        <input type="text" class="form-control" id="region" name="region" placeholder="e.g. Dar es Salaam" required>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="district" class="form-label">District</label>
+                        <input type="text" class="form-control" id="district" name="district" placeholder="e.g. Kinondoni">
+                     </div>
                   </div>
                </div>
 
@@ -399,7 +626,7 @@
                            </label>
                         </div>
                         <div class="form-check mt-2">
-                           <input class="form-check-input" type="checkbox" id="membership_policy_accepted" name="membership_policy_accepted" required>
+                           <input class="form-check-input" type="checkbox" id="membership_policy_accepted" name="membership_policy_accepted">
                            <label class="form-check-label" for="membership_policy_accepted">
                               I have read and accept the <a href="policies/membership-policy.pdf" target="_blank" rel="noopener" id="membershipPolicyLink">Membership Policy (PDF)</a> *
                            </label>
@@ -412,8 +639,11 @@
                         </div>
                      </div>
                      <div class="col-12 text-center mt-4">
-                        <button type="submit" class="th-btn star-btn btn-lg" id="membershipSubmitBtn" disabled>Submit Application</button>
+                        <button type="submit" class="th-btn star-btn btn-lg" id="membershipSubmitBtn">Submit Application</button>
                         <p class="mt-2 mb-0 text-muted small" id="membershipSubmitHint">Open the Membership Policy PDF and tick the acceptance checkbox to enable submit.</p>
+                        <div class="policy-warning" id="membershipPolicyWarning" role="alert">
+                           Please open and read the Membership Policy PDF, then tick the acceptance checkbox before submitting your application.
+                        </div>
                      </div>
                   </div>
                </div>
@@ -425,21 +655,26 @@
    <?php include 'layout/footer.php'; ?>
 
    <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
    <script src="assets/js/app.min.js"></script>
    <script src="assets/js/main.js"></script>
    <script>
       const membershipPolicyLink = document.getElementById('membershipPolicyLink');
       const membershipPolicyAccepted = document.getElementById('membership_policy_accepted');
-      const membershipSubmitBtn = document.getElementById('membershipSubmitBtn');
       const membershipSubmitHint = document.getElementById('membershipSubmitHint');
+      const membershipPolicyWarning = document.getElementById('membershipPolicyWarning');
+      const membershipForm = document.getElementById('membershipForm');
       let membershipPolicyOpened = false;
 
       function updateMembershipSubmitState() {
          const canSubmit = membershipPolicyOpened && membershipPolicyAccepted.checked;
-         membershipSubmitBtn.disabled = !canSubmit;
          membershipSubmitHint.textContent = canSubmit ?
             'Policy requirement completed. You can submit now.' :
             'Open the Membership Policy PDF and tick the acceptance checkbox to enable submit.';
+
+         if (canSubmit) {
+            membershipPolicyWarning.style.display = 'none';
+         }
       }
 
       membershipPolicyLink.addEventListener('click', function() {
@@ -448,6 +683,19 @@
       });
 
       membershipPolicyAccepted.addEventListener('change', updateMembershipSubmitState);
+      membershipForm.addEventListener('submit', function(event) {
+         if (!membershipPolicyOpened || !membershipPolicyAccepted.checked) {
+            event.preventDefault();
+            membershipPolicyWarning.style.display = 'block';
+            membershipPolicyWarning.textContent = !membershipPolicyOpened ?
+               'Before submitting, please open and read the Membership Policy PDF. This helps us confirm you understand AIDF membership responsibilities and privacy terms.' :
+               'You have opened the Membership Policy. Please tick the acceptance checkbox to confirm before submitting.';
+            membershipPolicyWarning.scrollIntoView({
+               behavior: 'smooth',
+               block: 'center'
+            });
+         }
+      });
       updateMembershipSubmitState();
 
       function selectMembership(type) {
@@ -456,6 +704,13 @@
             behavior: 'smooth'
          });
       }
+
+      // Searchable country dropdown
+      $('#country').select2({
+         placeholder: '— Select Country —',
+         allowClear: true,
+         width: '100%'
+      });
 
       // Auto-scroll to form when membership type is selected
       document.querySelectorAll('.membership-card button').forEach(btn => {

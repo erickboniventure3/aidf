@@ -14,6 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $gender = $_POST['gender'] ?? '';
    $occupation = trim($_POST['occupation'] ?? '');
    $address = trim($_POST['address'] ?? '');
+   $country = trim($_POST['country'] ?? '');
+   $region = trim($_POST['region'] ?? '');
+   $district = trim($_POST['district'] ?? '');
    $interests = isset($_POST['interests']) ? json_encode($_POST['interests']) : '[]';
    $availability = $_POST['availability'] ?? '';
    $hours_per_week = $_POST['hours_per_week'] ?? '';
@@ -31,6 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    if (empty($phone)) $errors[] = "Phone number is required";
    if (empty($date_of_birth)) $errors[] = "Date of birth is required";
    if (empty($address)) $errors[] = "Address is required";
+   if (empty($country)) $errors[] = "Country is required";
+   if (empty($region)) $errors[] = "Region is required";
    if (empty($availability)) $errors[] = "Availability is required";
    if (empty($hours_per_week)) $errors[] = "Hours per week commitment is required";
    if (empty($skills)) $errors[] = "Skills and experience description is required";
@@ -40,8 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    if (empty($errors)) {
       // Insert volunteer application into database
-      $stmt = $conn->prepare("INSERT INTO volunteers (full_name, email, phone, date_of_birth, gender, occupation, address, interests, availability, hours_per_week, skills, previous_volunteer, emergency_contact, terms_accepted, background_check_consent, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW())");
-      $stmt->bind_param("sssssssssssssii", $full_name, $email, $phone, $date_of_birth, $gender, $occupation, $address, $interests, $availability, $hours_per_week, $skills, $previous_volunteer, $emergency_contact, $terms, $background_check);
+      $stmt = $conn->prepare("INSERT INTO volunteers (full_name, email, phone, date_of_birth, gender, occupation, address, country, region, district, interests, availability, hours_per_week, skills, previous_volunteer, emergency_contact, terms_accepted, background_check_consent, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW())");
+      if (!$stmt) {
+         $error = "Database error: " . $conn->error;
+         header('Location: volunteer.php?error=' . urlencode($error));
+         exit;
+      }
+      $stmt->bind_param("ssssssssssssssssii", $full_name, $email, $phone, $date_of_birth, $gender, $occupation, $address, $country, $region, $district, $interests, $availability, $hours_per_week, $skills, $previous_volunteer, $emergency_contact, $terms, $background_check);
 
       if ($stmt->execute()) {
          $volunteer_id = $conn->insert_id;
@@ -96,7 +106,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Redirect to success page
             header('Location: volunteer.php?success=1');
             exit;
-
          } catch (Exception $e) {
             // Email failed, but application was recorded
             header('Location: volunteer.php?success=1&email_error=1');
@@ -113,4 +122,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // If we get here, there was an error
 header('Location: volunteer.php?error=' . urlencode($error ?? 'Unknown error'));
 exit;
-?>

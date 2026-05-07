@@ -266,7 +266,7 @@
                </div>
             </div>
             <div class="col-lg-4">
-               <div class="story-card"><img src="assets/img/project/p5.jpeg" alt="Youth skills">
+               <div class="story-card"><img src="assets/img/aidf/a2.jpeg" alt="Youth skills">
                   <div class="body">
                      <h4>Youth Skills and Leadership Labs</h4>
                      <p>Learning formats that blend communication, teamwork, innovation, and local problem-solving.</p>

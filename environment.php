@@ -255,7 +255,7 @@
          </div>
          <div class="row g-4">
             <div class="col-lg-4">
-               <div class="project-card"><img src="assets/img/project/p1.jpeg" alt="Tree growing initiatives">
+               <div class="project-card"><img src="assets/img/aidf/a5.jpeg" alt="Tree growing initiatives">
                   <div class="body">
                      <h4>Community Greening Initiatives</h4>
                      <p>Local environmental campaigns that combine awareness with practical restoration action.</p>

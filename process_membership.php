@@ -22,6 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $occupation = trim($_POST['occupation'] ?? '');
    $education_level = $_POST['education_level'] ?? '';
    $address = trim($_POST['address'] ?? '');
+   $country = trim($_POST['country'] ?? '');
+   $region = trim($_POST['region'] ?? '');
+   $district = trim($_POST['district'] ?? '');
    $membership_type = $_POST['membership_type'] ?? '';
    $interests = isset($_POST['interests']) ? json_encode($_POST['interests']) : '[]';
    $motivation = trim($_POST['motivation'] ?? '');
@@ -35,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Valid email is required";
    if (empty($phone)) $errors[] = "Phone number is required";
    if (empty($address)) $errors[] = "Address is required";
+   if (empty($country)) $errors[] = "Country is required";
+   if (empty($region)) $errors[] = "Region is required";
    if (empty($membership_type)) $errors[] = "Membership type is required";
    if (!empty($membership_type) && !isset($membershipTypeLabels[$membership_type])) $errors[] = "Invalid membership type selected";
    if (empty($motivation)) $errors[] = "Motivation statement is required";
@@ -43,8 +48,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    if (empty($errors)) {
       // Insert membership application into database
-      $stmt = $conn->prepare("INSERT INTO memberships (full_name, email, phone, date_of_birth, gender, occupation, education_level, address, membership_type, interests, motivation, terms_accepted, newsletter_subscribed, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW())");
-      $stmt->bind_param("sssssssssssii", $full_name, $email, $phone, $date_of_birth, $gender, $occupation, $education_level, $address, $membership_type, $interests, $motivation, $terms, $newsletter);
+      $stmt = $conn->prepare("INSERT INTO memberships (full_name, email, phone, date_of_birth, gender, occupation, education_level, address, country, region, district, membership_type, interests, motivation, terms_accepted, newsletter_subscribed, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW())");
+      if (!$stmt) {
+         $error = "Database error: " . $conn->error;
+         header('Location: membership.php?error=' . urlencode($error));
+         exit;
+      }
+      $stmt->bind_param("ssssssssssssssii", $full_name, $email, $phone, $date_of_birth, $gender, $occupation, $education_level, $address, $country, $region, $district, $membership_type, $interests, $motivation, $terms, $newsletter);
 
       if ($stmt->execute()) {
          $membership_id = $conn->insert_id;

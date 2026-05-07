@@ -275,7 +275,7 @@
                </div>
             </div>
             <div class="col-lg-4">
-               <div class="story-card"><img src="assets/img/project/p3.jpeg" alt="Youth empowerment">
+               <div class="story-card"><img src="assets/img/aidf/a3.jpeg" alt="Youth empowerment">
                   <div class="body">
                      <h4>Youth Agency Labs</h4>
                      <p>Interactive programs that help young people move from passive participation to active problem-solving and initiative.</p>
@@ -288,7 +288,7 @@
                </div>
             </div>
             <div class="col-lg-4">
-               <div class="story-card"><img src="assets/img/project/p2.jpeg" alt="Community dialogue">
+               <div class="story-card"><img src="assets/img/aidf/a4.jpeg" alt="Community dialogue">
                   <div class="body">
                      <h4>Community Dialogue for Inclusion</h4>
                      <p>Conversations that challenge harmful norms and open space for more equitable participation at household and community level.</p>

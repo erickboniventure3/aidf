@@ -13,13 +13,13 @@
    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/logo.png">
-   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/logo.pngg">
+   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/logo.png">
    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.png">
-   <link rel="icon" type="image/png" sizes="192x192" href="aassets/img/logo.png">
+   <link rel="icon" type="image/png" sizes="192x192" href="assets/img/logo.png">
    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/logo.png">
    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo.png">
@@ -86,7 +86,7 @@
    <?php include 'layout/header.php'; ?>
 
 
-   <div class="breadcumb-wrapper" data-bg-src="assets/img/bg/breadcumb-bg.jpg">
+   <div class="breadcumb-wrapper" data-bg-src="assets/img/bg/about-sec-3-bg.jpg">
       <div class="container">
          <div class="breadcumb-content">
             <h1 class="breadcumb-title">Thematic Areas</h1>
@@ -111,7 +111,7 @@
          <div class="row gy-40">
             <div class="col-xl-4 col-md-6">
                <div class="service-card">
-                  <div class="service-card_icon"><img src="assets/img/icon/service-icon_1-1.svg" alt="icon"></div>
+                  <div class="service-card_icon"><img src="assets/img/icon/service-2-1.svg" alt="icon"></div>
                   <div class="service-card_content">
                      <h3 class="service-card_title"><a href="gender.php">Gender Equality</a></h3>
                      <p class="service-card_text">Promoting gender equality and women's empowerment in communities.</p>
@@ -121,7 +121,7 @@
             </div>
             <div class="col-xl-4 col-md-6">
                <div class="service-card">
-                  <div class="service-card_icon"><img src="assets/img/icon/service-icon_1-2.svg" alt="icon"></div>
+                  <div class="service-card_icon"><img src="assets/img/icon/service-2-2.svg" alt="icon"></div>
                   <div class="service-card_content">
                      <h3 class="service-card_title"><a href="health.php">Health</a></h3>
                      <p class="service-card_text">Improving healthcare access and health outcomes in underserved areas.</p>
@@ -131,7 +131,7 @@
             </div>
             <div class="col-xl-4 col-md-6">
                <div class="service-card">
-                  <div class="service-card_icon"><img src="assets/img/icon/service-icon_1-3.svg" alt="icon"></div>
+                  <div class="service-card_icon"><img src="assets/img/icon/service-3-1.svg" alt="icon"></div>
                   <div class="service-card_content">
                      <h3 class="service-card_title"><a href="education.php">Education</a></h3>
                      <p class="service-card_text">Enhancing educational opportunities and literacy programs.</p>
@@ -141,11 +141,11 @@
             </div>
             <div class="col-xl-4 col-md-6">
                <div class="service-card">
-                  <div class="service-card_icon"><img src="assets/img/icon/service-icon_1-4.svg" alt="icon"></div>
+                  <div class="service-card_icon"><img src="assets/img/icon/service-3-2.svg" alt="icon"></div>
                   <div class="service-card_content">
-                     <h3 class="service-card_title"><a href="environmen.php">Environment</a></h3>
+                     <h3 class="service-card_title"><a href="environment.php">Environment</a></h3>
                      <p class="service-card_text">Protecting the environment and promoting sustainable practices.</p>
-                     <a href="environmen.php" class="th-btn style4">Read More <i class="fas fa-arrow-right"></i></a>
+                     <a href="environment.php" class="th-btn style4">Read More <i class="fas fa-arrow-right"></i></a>
                   </div>
                </div>
             </div>

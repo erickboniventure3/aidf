@@ -26,23 +26,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    if (empty($errors)) {
       // Insert donation into database
-      $stmt = $conn->prepare("INSERT INTO donations (donor_name, donor_email, donor_phone, amount, donation_type, payment_method, cause, message, anonymous, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW())");
       $stmt = $conn->prepare("INSERT INTO donations 
 (donor_name, donor_email, donor_phone, amount, donation_type, payment_method, cause, message, anonymous, status, created_at) 
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW())");
 
-$stmt->bind_param(
-    "sssissssi",
-    $donor_name,
-    $donor_email,
-    $donor_phone,
-    $amount,
-    $donation_type,
-    $payment_method,
-    $cause,
-    $message,
-    $anonymous
-);
+      if (!$stmt) {
+         $error = "Database error: " . $conn->error;
+         header('Location: donate.php?error=' . urlencode($error));
+         exit;
+      }
+
+      $stmt->bind_param(
+         "sssissssi",
+         $donor_name,
+         $donor_email,
+         $donor_phone,
+         $amount,
+         $donation_type,
+         $payment_method,
+         $cause,
+         $message,
+         $anonymous
+      );
 
       if ($stmt->execute()) {
          $donation_id = $conn->insert_id;

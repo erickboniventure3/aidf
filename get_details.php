@@ -34,6 +34,9 @@ switch ($type) {
          echo "<div class='col-md-6'><strong>Gender:</strong> " . ucfirst($data['gender'] ?: 'Not specified') . "</div>";
          echo "<div class='col-md-6'><strong>Occupation:</strong> " . htmlspecialchars($data['occupation'] ?: 'Not provided') . "</div>";
          echo "<div class='col-md-6'><strong>Education Level:</strong> " . ucfirst(str_replace('_', ' ', $data['education_level'] ?: 'Not specified')) . "</div>";
+         echo "<div class='col-md-6'><strong>Country:</strong> " . htmlspecialchars($data['country'] ?: 'Not provided') . "</div>";
+         echo "<div class='col-md-6'><strong>Region:</strong> " . htmlspecialchars($data['region'] ?: 'Not provided') . "</div>";
+         echo "<div class='col-md-6'><strong>District:</strong> " . htmlspecialchars($data['district'] ?: 'Not provided') . "</div>";
          echo "</div>";
          echo "<div class='mt-3'><strong>Address:</strong><br>" . nl2br(htmlspecialchars($data['address'])) . "</div>";
          echo "<div class='mt-3'><strong>Areas of Interest:</strong> " . implode(', ', json_decode($data['interests'], true)) . "</div>";
@@ -59,6 +62,9 @@ switch ($type) {
          echo "<div class='col-md-6'><strong>Date of Birth:</strong> " . date('M d, Y', strtotime($data['date_of_birth'])) . "</div>";
          echo "<div class='col-md-6'><strong>Gender:</strong> " . ucfirst($data['gender'] ?: 'Not specified') . "</div>";
          echo "<div class='col-md-6'><strong>Occupation:</strong> " . htmlspecialchars($data['occupation'] ?: 'Not provided') . "</div>";
+         echo "<div class='col-md-6'><strong>Country:</strong> " . htmlspecialchars($data['country'] ?: 'Not provided') . "</div>";
+         echo "<div class='col-md-6'><strong>Region:</strong> " . htmlspecialchars($data['region'] ?: 'Not provided') . "</div>";
+         echo "<div class='col-md-6'><strong>District:</strong> " . htmlspecialchars($data['district'] ?: 'Not provided') . "</div>";
          echo "</div>";
          echo "<div class='mt-3'><strong>Address:</strong><br>" . nl2br(htmlspecialchars($data['address'])) . "</div>";
          echo "<div class='mt-3'><strong>Areas of Interest:</strong> " . implode(', ', json_decode($data['interests'], true)) . "</div>";

@@ -287,7 +287,7 @@
          </div>
          <div class="row g-4">
             <div class="col-lg-4">
-               <div class="program-card"><img src="assets/img/project/p2.jpeg" alt="Community outreach">
+               <div class="program-card"><img src="assets/img/aidf/a1.jpeg" alt="Community outreach">
                   <div class="body">
                      <h4>Mobile Community Outreach</h4>
                      <p>Health talks, screening awareness, and referral guidance delivered where families already gather.</p>
